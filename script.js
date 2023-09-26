@@ -27,17 +27,20 @@ $(function () {
   
   // Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour.
-    for(var i=0;i < timeBlock.length;i++){
+for(var i=0;i < timeBlock.length;i++){
       // timeBlock[i]);
       // console.log(hour);
-      timeBlock[i].classList.add('past');
-      if(timeBlock[i].id.substr(5)==hour){
-        timeBlock[i].classList.add('present');
-          for(var j=i+1;j < timeBlock.length;j++){
-            timeBlock[j].classList.add('future');
-          }
-      }
+       if(hour>=12&&amPm=="am"&&hour<9){
         timeBlock[i].classList.add('future');
+       } else {
+        timeBlock[i].classList.add('past');
+        if(timeBlock[i].id.substr(5)==hour){
+          timeBlock[i].classList.add('present');
+            for(var j=i+1;j < timeBlock.length;j++){
+              timeBlock[j].classList.add('future');
+            }
+        }
+       }
       }
 
       

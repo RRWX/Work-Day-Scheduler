@@ -7,10 +7,11 @@
 var today = dayjs();
 var hour = today.format('h');
 var timeBlock = $('.time-block');
-var me  = document.querySelector('.description');
+var amPm = today.format('a')
+// var me  = document.querySelector('.description');
 var saveBtn = $(".saveBtn");
 
-// console.log(hour);
+console.log(amPm);
 $(function () {
  
   saveBtn.on('click', function(event) {
@@ -29,13 +30,14 @@ $(function () {
     for(var i=0;i < timeBlock.length;i++){
       // timeBlock[i]);
       // console.log(hour);
+      timeBlock[i].classList.add('past');
       if(timeBlock[i].id.substr(5)==hour){
         timeBlock[i].classList.add('present');
           for(var j=i+1;j < timeBlock.length;j++){
             timeBlock[j].classList.add('future');
           }
       }
-      timeBlock[i].classList.add('past');
+        timeBlock[i].classList.add('future');
       }
 
       
